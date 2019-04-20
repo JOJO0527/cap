@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cap-common" />
+        <module name="cap-manager-mapper" />
+        <module name="cap-manager-pojo" />
+        <module name="cap-manager-service" />
+        <module name="cap-manager-web" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
