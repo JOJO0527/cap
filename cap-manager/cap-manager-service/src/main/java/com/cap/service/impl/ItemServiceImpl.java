@@ -7,10 +7,9 @@ import com.cap.common.pojo.TaotaoResult;
 import com.cap.common.utils.IDUtils;
 import com.cap.mapper.CapItemDescMapper;
 import com.cap.mapper.CapItemMapper;
-import com.cap.pojo.CapItemDesc;
+import com.cap.mapper.CapItemParamItemMapper;
+import com.cap.pojo.*;
 import com.cap.pojo.CapItemExample.Criteria;
-import com.cap.pojo.CapItem;
-import com.cap.pojo.CapItemExample;
 import com.cap.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +31,8 @@ public class ItemServiceImpl implements ItemService {
 	private CapItemMapper itemMapper;
 	@Autowired
     private CapItemDescMapper itemDescMapper;
+	@Autowired
+	private CapItemParamItemMapper itemParamItemMapper;
 	@Override
 	public EUDataGridResult getItemList (int page, int rows) {
 		//查询商品列表
@@ -84,11 +85,11 @@ public class ItemServiceImpl implements ItemService {
 		if (result.getStatus() != 200) {
 			throw new Exception();
 		}
-//		//添加规格参数
-//		result = insertItemParamItem(itemId, itemParam);
-//		if (result.getStatus() != 200) {
-//			throw new Exception();
-//		}
+		//添加规格参数
+		result = insertItemParamItem(itemId, itemParam);
+		if (result.getStatus() != 200) {
+			throw new Exception();
+		}
 		return TaotaoResult.ok();
 	}
 	/**
@@ -106,28 +107,28 @@ public class ItemServiceImpl implements ItemService {
 		itemDescMapper.insert(itemDesc);
 		return TaotaoResult.ok();
 	}
-//
-//	/**
-//	 * 添加规格参数
-//	 * <p>Title: insertItemParamItem</p>
-//	 * <p>Description: </p>
-//	 * @param itemId
-//	 * @param itemParam
-//	 * @return
-//	 */
-//	private TaotaoResult insertItemParamItem(Long itemId, String itemParam) {
-//		//创建一个pojo
-//		CapItemParamItem itemParamItem = new CapItemParamItem();
-//		itemParamItem.setItemId(itemId);
-//		itemParamItem.setParamData(itemParam);
-//		itemParamItem.setCreated(new Date());
-//		itemParamItem.setUpdated(new Date());
-//		//向表中插入数据
-//		itemParamItemMapper.insert(itemParamItem);
-//
-//		return TaotaoResult.ok();
-//
-//	}
+
+	/**
+	 * 添加规格参数
+	 * <p>Title: insertItemParamItem</p>
+	 * <p>Description: </p>
+	 * @param itemId
+	 * @param itemParam
+	 * @return
+	 */
+	private TaotaoResult insertItemParamItem(Long itemId, String itemParam) {
+		//创建一个pojo
+		CapItemParamItem itemParamItem = new CapItemParamItem();
+		itemParamItem.setItemId(itemId);
+		itemParamItem.setParamData(itemParam);
+		itemParamItem.setCreated(new Date());
+		itemParamItem.setUpdated(new Date());
+		//向表中插入数据
+		itemParamItemMapper.insert(itemParamItem);
+
+		return TaotaoResult.ok();
+
+	}
 
 
 }
