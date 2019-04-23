@@ -129,7 +129,16 @@ public class ItemServiceImpl implements ItemService {
 		return TaotaoResult.ok();
 
 	}
-
+//
+//	public TaotaoResult deleteItem(long itemId){
+//
+//        CapItemExample example = new CapItemExample();
+//        Criteria criteria = example.createCriteria();
+//        criteria.andIdEqualTo(itemId);
+//        itemMapper.deleteByExample(example);
+//	    return  TaotaoResult.ok();
+//    }
+//
 
 }
 

@@ -11,6 +11,8 @@
         <module name="cap-manager-pojo" />
         <module name="cap-manager-service" />
         <module name="cap-manager-web" />
+        <module name="cap-portal" />
+        <module name="cap-rest" />
       </profile>
     </annotationProcessing>
   </component>

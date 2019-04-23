@@ -10,6 +10,8 @@
     <modules>
         <module>cap-common</module>
         <module>cap-manager</module>
+        <module>cap-rest</module>
+        <module>cap-portal</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 集中定义依赖版本号 -->
@@ -286,12 +288,6 @@
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
-                    <configuration>
-                        <path>/maven_web</path>
-                        <update>true</update>
-                        <url>http://localhost:8080/manager/text</url>
-                        <server>tomcat</server>
-                    </configuration>
                 </plugin>
             </plugins>
 

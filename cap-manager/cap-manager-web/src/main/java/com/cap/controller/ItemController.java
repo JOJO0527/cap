@@ -42,4 +42,10 @@ public class ItemController {
 		TaotaoResult result = itemService.createItem(item, desc, itemParams);
 		return result;
 	}
+//
+//    @RequestMapping(value="/item/delete")
+//    @ResponseBody
+//    private void deleteItem(Long itemId) throws Exception {
+//        itemService.deleteItem(itemId);
+//    }
 }

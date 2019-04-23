@@ -10,5 +10,5 @@ public interface ItemService {
     CapItem getItemById(long itemId);
     EUDataGridResult getItemList(int page, int rows);
     TaotaoResult createItem(CapItem item, String desc, String itemParam) throws Exception;
-
+    //TaotaoResult deleteItem(long itemId);
 }
