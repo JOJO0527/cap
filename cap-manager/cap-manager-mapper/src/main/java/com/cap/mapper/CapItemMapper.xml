@@ -13,8 +13,8 @@
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
-    <result column="opening_bid" property="openingBid" jdbcType="VARCHAR" />
-    <result column="current_bid" property="currentBid" jdbcType="VARCHAR" />
+    <result column="openingbid" property="openingBid" jdbcType="VARCHAR" />
+    <result column="currentbid" property="currentBid" jdbcType="VARCHAR" />
     <result column="countdown" property="countdown" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -77,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, title, sell_point, price, num, barcode, image, cid, status, created, updated, 
-    opening_bid, current_bid, countdown
+    openingbid, currentbid, countdown
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cap.pojo.CapItemExample" >
     select
@@ -113,8 +113,8 @@
     insert into cap_item (id, title, sell_point, 
       price, num, barcode, 
       image, cid, status, 
-      created, updated, opening_bid, 
-      current_bid, countdown)
+      created, updated, openingbid,
+      currentbid, countdown)
     values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR}, 
       #{price,jdbcType=BIGINT}, #{num,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, 
       #{image,jdbcType=VARCHAR}, #{cid,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, 
@@ -158,10 +158,10 @@
         updated,
       </if>
       <if test="openingBid != null" >
-        opening_bid,
+        openingbid,
       </if>
       <if test="currentBid != null" >
-        current_bid,
+        currentbid,
       </if>
       <if test="countdown != null" >
         countdown,
@@ -255,10 +255,10 @@
         updated = #{record.updated,jdbcType=TIMESTAMP},
       </if>
       <if test="record.openingBid != null" >
-        opening_bid = #{record.openingBid,jdbcType=VARCHAR},
+        openingbid = #{record.openingBid,jdbcType=VARCHAR},
       </if>
       <if test="record.currentBid != null" >
-        current_bid = #{record.currentBid,jdbcType=VARCHAR},
+        currentbid = #{record.currentBid,jdbcType=VARCHAR},
       </if>
       <if test="record.countdown != null" >
         countdown = #{record.countdown,jdbcType=TIMESTAMP},
@@ -281,8 +281,8 @@
       status = #{record.status,jdbcType=TINYINT},
       created = #{record.created,jdbcType=TIMESTAMP},
       updated = #{record.updated,jdbcType=TIMESTAMP},
-      opening_bid = #{record.openingBid,jdbcType=VARCHAR},
-      current_bid = #{record.currentBid,jdbcType=VARCHAR},
+      openingbid = #{record.openingBid,jdbcType=VARCHAR},
+      currentbid = #{record.currentBid,jdbcType=VARCHAR},
       countdown = #{record.countdown,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -322,10 +322,10 @@
         updated = #{updated,jdbcType=TIMESTAMP},
       </if>
       <if test="openingBid != null" >
-        opening_bid = #{openingBid,jdbcType=VARCHAR},
+        openingbid = #{openingBid,jdbcType=VARCHAR},
       </if>
       <if test="currentBid != null" >
-        current_bid = #{currentBid,jdbcType=VARCHAR},
+        currentbid = #{currentBid,jdbcType=VARCHAR},
       </if>
       <if test="countdown != null" >
         countdown = #{countdown,jdbcType=TIMESTAMP},
@@ -345,8 +345,8 @@
       status = #{status,jdbcType=TINYINT},
       created = #{created,jdbcType=TIMESTAMP},
       updated = #{updated,jdbcType=TIMESTAMP},
-      opening_bid = #{openingBid,jdbcType=VARCHAR},
-      current_bid = #{currentBid,jdbcType=VARCHAR},
+      openingbid = #{openingBid,jdbcType=VARCHAR},
+      currentbid = #{currentBid,jdbcType=VARCHAR},
       countdown = #{countdown,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>

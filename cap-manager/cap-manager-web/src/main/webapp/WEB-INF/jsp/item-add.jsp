@@ -26,7 +26,18 @@
 	            	<input type="hidden" name="price"/>
 	            </td>
 	        </tr>
+			<tr>
+				<td>商品起始拍卖价格:</td>
+				<td><input class="easyui-numberbox" type="text" name="openingbidView" data-options="min:1,max:99999999,precision:2,required:true" />
+                    <input type="hidden" name="openingbid"/></td>
+			</tr>
 	        <tr>
+			<tr>
+				<td>商品起始拍卖截止日期:</td>
+				<td><input class="easyui-datetimebox" name="countdown" data-options="required:true,showSeconds:false" style="width:150px"/>
+                    <input type="hidden" name="countdown"/></td>
+			</tr>
+			<tr>
 	            <td>库存数量:</td>
 	            <td><input class="easyui-numberbox" type="text" name="num" data-options="min:1,max:99999999,precision:0,required:true" /></td>
 	        </tr>
@@ -85,6 +96,8 @@
 		}
 		//取商品价格，单位为“分”
 		$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
+        $("#itemAddForm [name=openingbid]").val(eval($("#itemAddForm [name=openingbidView]").val()) * 100);
+        $("#itemAddForm [name=countdown]").val();
 		//同步文本框中的商品描述
 		itemAddEditor.sync();
 		//取商品的规格
@@ -114,6 +127,9 @@
 		$.post("/item/save",$("#itemAddForm").serialize(), function(data){
 			if(data.status == 200){
 				$.messager.alert('提示','新增商品成功!');
+			}else
+			{
+                $.messager.alert('提示','新增商品失败!');
 			}
 		});
 	}

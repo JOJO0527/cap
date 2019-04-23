@@ -25,11 +25,11 @@ public class CapItem {
 
     private Date updated;
 
-    private String openingBid;
+    private Long openingBid;
 
-    private String currentBid;
+    private Long currentBid;
 
-    private Date countdown;
+    private String countdown;
 
     public Long getId() {
         return id;
@@ -119,27 +119,27 @@ public class CapItem {
         this.updated = updated;
     }
 
-    public String getOpeningBid() {
+    public Long getOpeningBid() {
         return openingBid;
     }
 
-    public void setOpeningBid(String openingBid) {
-        this.openingBid = openingBid == null ? null : openingBid.trim();
+    public void setOpeningBid(Long openingBid) {
+        this.openingBid = openingBid;
     }
 
-    public String getCurrentBid() {
+    public Long getCurrentBid() {
         return currentBid;
     }
 
-    public void setCurrentBid(String currentBid) {
-        this.currentBid = currentBid == null ? null : currentBid.trim();
+    public void setCurrentBid(Long currentBid) {
+        this.currentBid = currentBid;
     }
 
-    public Date getCountdown() {
+    public String getCountdown() {
         return countdown;
     }
 
-    public void setCountdown(Date countdown) {
+    public void setCountdown(String countdown) {
         this.countdown = countdown;
     }
 }

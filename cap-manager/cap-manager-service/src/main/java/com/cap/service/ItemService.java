@@ -4,9 +4,6 @@ import com.cap.common.pojo.EUDataGridResult;
 import com.cap.common.pojo.TaotaoResult;
 import com.cap.pojo.CapItem;
 
-import com.cap.pojo.TbItem;
-import org.springframework.stereotype.Service;
-
 
 public interface ItemService {
 

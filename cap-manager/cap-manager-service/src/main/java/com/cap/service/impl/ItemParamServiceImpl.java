@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cap.common.pojo.TaotaoResult;
-import com.cap.mapper.CapItemDescMapper;
-import com.cap.pojo.CapItem;
 import com.cap.pojo.CapItemParamExample;
 import com.cap.pojo.CapItemParamExample.Criteria;
 import com.cap.service.ItemParamService;
