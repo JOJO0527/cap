@@ -6,8 +6,6 @@ import java.util.List;
 import com.cap.mapper.CapItemCatMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.cap.mapper.CapItemCatMapper;
 import com.cap.pojo.CapItemCat;
 import com.cap.pojo.CapItemCatExample;
 import com.cap.pojo.CapItemCatExample.Criteria;
@@ -19,6 +17,7 @@ import com.cap.rest.service.ItemCatService;
  * 商品分类服务
  * <p>Title: ItemCatServiceImpl</p>
  */
+@SuppressWarnings("unchecked")
 @Service
 public class ItemCatServiceImpl implements ItemCatService {
 

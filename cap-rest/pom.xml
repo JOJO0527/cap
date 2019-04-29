@@ -117,7 +117,7 @@
                         <configuration>
                             <port>8081</port>
                             <path>/</path>
-                            <url>http://192.168.131.128:8080/manager/text</url>
+                            <url>http://localhost:8081/manager/text</url><!--指定该tomcat管理页路径-->
                             <username>tomcat</username>
                             <password>tomcat</password>
                         </configuration>
