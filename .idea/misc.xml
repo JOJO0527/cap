@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/cap-manager/cap-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/cap-order" />
     <file type="web" url="file://$PROJECT_DIR$/cap-portal" />
     <file type="web" url="file://$PROJECT_DIR$/cap-rest" />
     <file type="web" url="file://$PROJECT_DIR$/cap-search" />

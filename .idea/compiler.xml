@@ -11,6 +11,7 @@
         <module name="cap-manager-pojo" />
         <module name="cap-manager-service" />
         <module name="cap-manager-web" />
+        <module name="cap-order" />
         <module name="cap-portal" />
         <module name="cap-rest" />
         <module name="cap-search" />
