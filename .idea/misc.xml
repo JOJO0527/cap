@@ -5,6 +5,8 @@
     <file type="web" url="file://$PROJECT_DIR$/cap-manager/cap-manager-web" />
     <file type="web" url="file://$PROJECT_DIR$/cap-portal" />
     <file type="web" url="file://$PROJECT_DIR$/cap-rest" />
+    <file type="web" url="file://$PROJECT_DIR$/cap-search" />
+    <file type="web" url="file://$PROJECT_DIR$/cap-sso" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

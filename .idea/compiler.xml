@@ -13,6 +13,8 @@
         <module name="cap-manager-web" />
         <module name="cap-portal" />
         <module name="cap-rest" />
+        <module name="cap-search" />
+        <module name="cap-sso" />
       </profile>
     </annotationProcessing>
   </component>

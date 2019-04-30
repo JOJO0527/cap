@@ -12,6 +12,8 @@
         <module>cap-manager</module>
         <module>cap-rest</module>
         <module>cap-portal</module>
+        <module>cap-search</module>
+        <module>cap-sso</module>
     </modules>
     <packaging>pom</packaging>
     <!-- 集中定义依赖版本号 -->

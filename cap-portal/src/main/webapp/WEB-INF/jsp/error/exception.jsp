@@ -14,7 +14,7 @@
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>出错了 -淘淘商城</title>
+<title>出错了 -"收藏品"拍卖平台</title>
 <!--结算页面样式-->
 <link rel="stylesheet" type="text/css" href="/css/base.css" media="all" />
 <link type="text/css" rel="stylesheet" href="/css/order-commons.css"
@@ -27,7 +27,7 @@
 <body id="mainframe">
 	<div class="w w1 header clearfix">
 		<div id="logo">
-			<a href="/"><img src="/images/taotao-logo.gif" alt="淘淘商城"></a>
+			<a href="/"><img src="/images/taotao-logo.gif" alt="收藏品拍卖平台"></a>
 		</div>
 	</div>
 

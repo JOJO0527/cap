@@ -10,6 +10,8 @@
     <file url="file://$PROJECT_DIR$/cap-manager/cap-manager-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cap-portal" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cap-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cap-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cap-sso" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
