@@ -12,4 +12,5 @@ public interface UserService {
 	TaotaoResult createUser(CapUser user);
 	TaotaoResult userLogin(String username, String password, HttpServletRequest request, HttpServletResponse response);
 	TaotaoResult getUserByToken(String token);
+	TaotaoResult userLogout(HttpServletRequest request, HttpServletResponse response, String token);
 }

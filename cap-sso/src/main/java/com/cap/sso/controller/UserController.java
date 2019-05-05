@@ -99,6 +99,18 @@ public class UserController {
 			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
 		}
 	}
+	//用户注销
+	@RequestMapping(value="/logout", method=RequestMethod.POST)
+	@ResponseBody
+	public TaotaoResult userLoout(HttpServletRequest request, HttpServletResponse response,String token) {
+		try {
+			TaotaoResult result = userService.userLogout(request,response,token);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
 	
 	@RequestMapping("/token/{token}")
 	@ResponseBody

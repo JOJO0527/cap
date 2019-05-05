@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cap.pojo.CapItem;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,6 @@ import com.cap.common.pojo.TaotaoResult;
 import com.cap.common.utils.CookieUtils;
 import com.cap.common.utils.HttpClientUtil;
 import com.cap.common.utils.JsonUtils;
-import com.cap.pojo.CapItem;
 import com.cap.portal.pojo.CartItem;
 import com.cap.portal.service.CartService;
 

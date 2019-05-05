@@ -7,4 +7,6 @@ public interface ItemService {
 	TaotaoResult getItemBaseInfo(long itemId);
 	TaotaoResult getItemDesc(long itemId);
 	TaotaoResult getItemParam(long itemId);
+	TaotaoResult getItemRecord(long itemId);
+	TaotaoResult getOvertimeItem();
 }

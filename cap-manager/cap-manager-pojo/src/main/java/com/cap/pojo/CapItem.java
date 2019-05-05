@@ -29,7 +29,7 @@ public class CapItem {
 
     private Long currentBid;
 
-    private String countdown;
+    private Date countdown;
 
     public Long getId() {
         return id;
@@ -135,11 +135,11 @@ public class CapItem {
         this.currentBid = currentBid;
     }
 
-    public String getCountdown() {
+    public Date getCountdown() {
         return countdown;
     }
 
-    public void setCountdown(String countdown) {
+    public void setCountdown(Date countdown) {
         this.countdown = countdown;
     }
 }

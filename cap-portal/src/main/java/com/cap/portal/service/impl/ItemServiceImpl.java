@@ -3,6 +3,8 @@ package com.cap.portal.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import com.cap.pojo.CapAuctionRecord;
+import com.cap.pojo.CapItem;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,10 @@ public class ItemServiceImpl implements ItemService {
 	private String ITEM_DESC_URL;
 	@Value("${ITEM_PARAM_URL}")
 	private String ITEM_PARAM_URL;
+	@Value("${ITEM_RECORD_URL}")
+	private String ITEM_RECORD_URL;
+	@Value("${ITEM_OVERTIME_URL}")
+	private String ITEM_OVERTIME_URL;
 
 	@Override
 	public ItemInfo getItemById(Long itemId) {
@@ -77,6 +83,48 @@ public class ItemServiceImpl implements ItemService {
 		}
 		return null;
 	}
+
+	/**
+	 *
+	 * 取商品竞拍记录
+	 */
+	@Override
+	public CapAuctionRecord getItemRecordById(Long itemId) {
+		try {
+			//查询商品竞拍记录
+			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_RECORD_URL + itemId);
+			//转换成java对象
+			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, CapAuctionRecord.class);
+			if (taotaoResult.getStatus() == 200) {
+                CapAuctionRecord itemRecord = (CapAuctionRecord) taotaoResult.getData();
+				//取商品竞拍记录
+				return itemRecord;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+//	@Override
+//	public String getItemRecordById(Long itemId) {
+//		try {
+//			//查询商品描述
+//			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_RECORD_URL + itemId);
+//			//转换成java对象
+//			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, CapAuctionRecord.class);
+//			if (taotaoResult.getStatus() == 200) {
+//				CapAuctionRecord itemRecord = (CapAuctionRecord) taotaoResult.getData();
+//				//取商品描述信息
+//				return itemRecord.toString();
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+
+
 
 	/**
 	 * 根据商品id查询规格参数
@@ -127,4 +175,21 @@ public class ItemServiceImpl implements ItemService {
 		return "";
 	}
 
+	@Override
+	public  List<CapItem> getOvertimeItem(){
+        try {
+            //查询过期商品列表
+            String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_OVERTIME_URL);
+            //转换成java对象
+            TaotaoResult taotaoResult = TaotaoResult.formatToList(json, CapItem.class);
+            if (taotaoResult.getStatus() == 200) {
+                List<CapItem> itemList = (List<CapItem>) taotaoResult.getData();
+                //取过期商品列表
+                return itemList;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+	}
 }

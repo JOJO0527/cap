@@ -116,9 +116,19 @@ public class UserServiceImpl implements UserService {
 		return TaotaoResult.ok(token);
 	}
 
+
+
+
+	@Override
+	public TaotaoResult userLogout(HttpServletRequest request, HttpServletResponse response,String token) {
+        //根据token从redis中查询用户信息
+		CookieUtils.deleteCookie(request,response,"TT_TOKEN");
+		jedisClient.expire(REDIS_USER_SESSION_KEY + ":" + token, SSO_SESSION_EXPIRE);
+		return TaotaoResult.ok();
+	}
 	@Override
 	public TaotaoResult getUserByToken(String token) {
-		
+
 		//根据token从redis中查询用户信息
 		String json = jedisClient.get(REDIS_USER_SESSION_KEY + ":" + token);
 		//判断是否为空
@@ -130,5 +140,4 @@ public class UserServiceImpl implements UserService {
 		//返回用户信息
 		return TaotaoResult.ok(JsonUtils.jsonToPojo(json, CapUser.class));
 	}
-
 }

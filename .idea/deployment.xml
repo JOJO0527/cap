@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="nginx">
+  <component name="PublishConfigData">
     <serverData>
       <paths name="nginx">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$/cap-manager" web="/" />
+            <mapping deploy="/root" local="E:/2017JAVAEE/淘淘商城(SpringMvc+Spring+Mybatis)/12.第十二天（系统架构讲解、nginx）/01.参考资料" web="/" />
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>

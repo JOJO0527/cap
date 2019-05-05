@@ -9,7 +9,6 @@ import com.cap.mapper.CapItemDescMapper;
 import com.cap.mapper.CapItemMapper;
 import com.cap.mapper.CapItemParamItemMapper;
 import com.cap.pojo.*;
-import com.cap.pojo.CapItemExample.Criteria;
 import com.cap.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,7 +56,7 @@ public class ItemServiceImpl implements ItemService {
 		//TbItem item = itemMapper.selectByPrimaryKey(itemId);
 		//添加查询条件
 		CapItemExample example = new CapItemExample();
-		Criteria criteria = example.createCriteria();
+		CapItemExample.Criteria criteria = example.createCriteria();
 		criteria.andIdEqualTo(itemId);
 		List<CapItem> list = itemMapper.selectByExample(example);
 		if (list != null && list.size() > 0) {

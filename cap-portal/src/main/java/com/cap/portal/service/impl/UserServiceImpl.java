@@ -22,6 +22,8 @@ public class UserServiceImpl implements UserService {
 	private String SSO_USER_TOKEN;
 	@Value("${SSO_PAGE_LOGIN}")
 	public String SSO_PAGE_LOGIN;
+	@Value("${SSO_USER_LOGOUT}")
+	public String SSO_USER_LOGOUT;
 	
 	
 	@Override
