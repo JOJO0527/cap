@@ -10,6 +10,17 @@ public class Order extends CapOrder {
 
 	private List<CapOrderItem> orderItems;
 	private CapOrderShipping orderShipping;
+
+	public CapOrderItem getOrderItem() {
+		return orderItem;
+	}
+
+	public void setOrderItem(CapOrderItem orderItem) {
+		this.orderItem = orderItem;
+	}
+
+	private CapOrderItem orderItem;
+
 	public List<CapOrderItem> getOrderItems() {
 		return orderItems;
 	}
