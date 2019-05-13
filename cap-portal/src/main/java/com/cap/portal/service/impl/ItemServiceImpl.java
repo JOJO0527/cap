@@ -88,41 +88,42 @@ public class ItemServiceImpl implements ItemService {
 	 *
 	 * 取商品竞拍记录
 	 */
-	@Override
-	public CapAuctionRecord getItemRecordById(Long itemId) {
-		try {
-			//查询商品竞拍记录
-			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_RECORD_URL + itemId);
-			//转换成java对象
-			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, CapAuctionRecord.class);
-			if (taotaoResult.getStatus() == 200) {
-                CapAuctionRecord itemRecord = (CapAuctionRecord) taotaoResult.getData();
-				//取商品竞拍记录
-				return itemRecord;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 //	@Override
-//	public String getItemRecordById(Long itemId) {
+//	public CapAuctionRecord getItemRecordById(Long itemId) {
 //		try {
-//			//查询商品描述
+//			//查询商品竞拍记录
 //			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_RECORD_URL + itemId);
 //			//转换成java对象
 //			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, CapAuctionRecord.class);
 //			if (taotaoResult.getStatus() == 200) {
-//				CapAuctionRecord itemRecord = (CapAuctionRecord) taotaoResult.getData();
-//				//取商品描述信息
-//				return itemRecord.toString();
+//                CapAuctionRecord itemRecord = (CapAuctionRecord) taotaoResult.getData();
+//				//取商品竞拍记录
+//				return itemRecord;
 //			}
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
 //		return null;
 //	}
+
+    //获取商品竞标当前价格
+	@Override
+	public String getItemRecordById(Long itemId) {
+		try {
+			//查询商品描述
+			String json = HttpClientUtil.doGet(REST_BASE_URL + ITEM_RECORD_URL + itemId);
+			//转换成java对象
+			TaotaoResult taotaoResult = TaotaoResult.formatToPojo(json, CapAuctionRecord.class);
+			if (taotaoResult.getStatus() == 200) {
+				CapAuctionRecord itemRecord = (CapAuctionRecord) taotaoResult.getData();
+				//取商品描述信息
+				return itemRecord.getAuctionprice()+"";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 
 
