@@ -17,8 +17,11 @@
 	<!--开启这个配置，spring才能识别@Scheduled注解-->
 	<task:annotation-driven />
 	<mvc:annotation-driven />
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <!--<context:annotation-config/>-->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+    <!--<context:component-scan base-package="com.cap.portal.timetask"/>-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!--<property name="prefix" value="/WEB-INF/jsp/" />-->
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
@@ -30,6 +33,11 @@
 			<mvc:mapping path="/order/**"/>
 			<bean class="com.cap.portal.interceptor.LoginInterceptor"/>
 		</mvc:interceptor>
+        <mvc:interceptor>
+            <!-- 拦截跨域请求 -->
+            <mvc:mapping path="/**"/>
+            <bean class="com.cap.portal.interceptor.CorsInterceptor"/>
+        </mvc:interceptor>
 	</mvc:interceptors>
 
 	<!-- 配置异常处理 -->

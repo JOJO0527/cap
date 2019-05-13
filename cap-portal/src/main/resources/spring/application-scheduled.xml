@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd
+         http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+       default-lazy-init="true">
+    <!-- 扫描rocoinfo包下的所有类 -->
+    <context:component-scan base-package="com.cap.portal.timetask"/>
+
+    <!-- 启用spring Task-->
+    <!-- 配置执行任务线性池 -->
+    <task:executor id="executor" pool-size="3"/>
+    <!-- 配置任务调度线程池-->
+    <task:scheduler id="scheduler" pool-size="3"/>
+    <!-- 启用annotation方式 -->
+    <task:annotation-driven scheduler="scheduler"
+                            executor="executor" proxy-target-class="true"/>
+    <!-- 指定定时执行的方法，如果这里指定了就不要使用@Scheduled在方法上指定了，否则会造成多次执行-->
+    <!-- <task:scheduled-tasks scheduler="scheduler">
+       <task:scheduled ref="contractService  " method="testScheduled"
+                       cron="0 0 12 * * ?" />
+</task:scheduled-tasks> -->
+        </beans>
+
