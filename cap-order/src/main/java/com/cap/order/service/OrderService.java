@@ -9,5 +9,7 @@ import com.cap.pojo.CapOrderShipping;
 
 public interface OrderService {
 
-	TaotaoResult createOrder(CapOrder order, List<CapOrderItem> itemList, CapOrderShipping orderShipping);
+//	TaotaoResult createOrder(CapOrder order, List<CapOrderItem> itemList, CapOrderShipping orderShipping);
+	TaotaoResult createOrder(CapOrder order,CapOrderItem item);
+	TaotaoResult findOrderListByUserid(Long userid);
 }

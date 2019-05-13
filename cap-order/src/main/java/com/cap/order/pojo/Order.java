@@ -9,17 +9,32 @@ import com.cap.pojo.CapOrderShipping;
 public class Order extends CapOrder {
 
 	private List<CapOrderItem> orderItems;
-	private CapOrderShipping orderShipping;
+	private CapOrderItem orderItem;
+
+    public CapOrderItem getOrderItem() {
+        return orderItem;
+    }
+
+    public void setOrderItem(CapOrderItem orderItem) {
+        this.orderItem = orderItem;
+    }
+
+    private CapOrderShipping orderShipping;
+
 	public List<CapOrderItem> getOrderItems() {
+
 		return orderItems;
 	}
 	public void setOrderItems(List<CapOrderItem> orderItems) {
+
 		this.orderItems = orderItems;
 	}
 	public CapOrderShipping getOrderShipping() {
+
 		return orderShipping;
 	}
 	public void setOrderShipping(CapOrderShipping orderShipping) {
+
 		this.orderShipping = orderShipping;
 	}
 	
