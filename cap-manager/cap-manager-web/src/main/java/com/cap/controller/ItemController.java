@@ -2,15 +2,18 @@ package com.cap.controller;
 
 import com.cap.pojo.CapItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 import com.cap.common.pojo.EUDataGridResult;
 import com.cap.common.pojo.TaotaoResult;
 import com.cap.service.ItemService;
+
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 商品管理Controller
@@ -42,6 +45,13 @@ public class ItemController {
 		TaotaoResult result = itemService.createItem(item, desc, itemParams);
 		return result;
 	}
+	//日期转换将表单中的String类型日期转换成Date类型
+    @InitBinder
+    protected void init(HttpServletRequest request, ServletRequestDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
 //
 //    @RequestMapping(value="/item/delete")
 //    @ResponseBody
