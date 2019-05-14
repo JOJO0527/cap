@@ -68,6 +68,6 @@ public class ItemController {
     public String getOvertimeItem(Model model) {
         List<CapItem> itemList = itemService.getOvertimeItem();
         model.addAttribute("overtimeitem", itemList);
-        return "item";
+        return "overitem";
     }
 }

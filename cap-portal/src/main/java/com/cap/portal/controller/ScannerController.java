@@ -35,27 +35,30 @@ public class ScannerController {
             for (CapItem item : overtimeItem) {
                 //获取过期竞品的id
                 Long overtimeItemId = item.getId();
-
-                //获取过期竞品的竞标记录
+                //获取过期竞品的竞标记录,可能是空指针
                 CapAuctionRecord auctionRecord = auctionService.findAuctionRecordById(overtimeItemId);
-                //获取竞标记录的最高竞标者id
-                Long userId = auctionRecord.getUserId();
-                //构造ordershipping对象 暂缓
-                //构造orderItem对象
-                Order order = new Order();
-                CapOrderItem orderItem = new CapOrderItem();
-                orderItem.setItemId(overtimeItemId + "");
-                orderItem.setTitle(item.getTitle());
-                orderItem.setPicPath(item.getImage());
-                orderItem.setPrice(item.getPrice());
-                //构造order对象
-                order.setUserId(userId);
-                order.setPayment(orderItem.getPrice() + "");
-                order.setOrderItem(orderItem);
-                //调用服务
-                //生成订单后商品下架
-                item.setStatus((byte) 2);
-                String orderId = orderService.createOrder(order);
+                if(null!=auctionRecord) {
+                    //获取竞标记录的最高竞标者id
+                    Long userId = auctionRecord.getUserId();
+                    //构造ordershipping对象 暂缓
+                    //构造orderItem对象
+                    Order order = new Order();
+                    CapOrderItem orderItem = new CapOrderItem();
+                    orderItem.setItemId(overtimeItemId + "");
+                    orderItem.setTitle(item.getTitle());
+                    orderItem.setPicPath(item.getImage());
+                    orderItem.setPrice(item.getPrice());
+                    //构造order对象
+                    order.setUserId(userId);
+                    order.setPayment(orderItem.getPrice() + "");
+                    order.setOrderItem(orderItem);
+                    //调用服务
+                    //生成订单后商品下架
+                    item.setStatus((byte) 2);
+                    String orderId = orderService.createOrder(order);
+                }else{
+                    continue;
+                }
             }
             return "success";
         } catch (Exception e) {
